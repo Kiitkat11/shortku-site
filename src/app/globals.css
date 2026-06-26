@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors */
+  --color-azure:       #6FAEDB;
+  --color-azure-deep:  #3E86C0;
+  --color-oat:         #E4D5B7;
+  --color-oat-deep:    #D6BE92;
+  --color-pitch:       #26343E;
+  --color-pitch-dark:  #1a2530;
+  --color-mist:        #F4EEE1;
+
+  /* Fonts */
+  --font-outfit:  var(--font-outfit);
+  --font-tajawal: var(--font-tajawal);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #26343E;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles this */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), "Plus Jakarta Sans", system-ui, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Arabic body override */
+html[lang="ar"] body {
+  font-family: var(--font-tajawal), "IBM Plex Sans Arabic", Tahoma, sans-serif;
+}
+
+/* Orbit ring animation */
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes orbit-node {
+  from { transform: rotate(0deg) translateX(140px); }
+  to   { transform: rotate(360deg) translateX(140px); }
+}
+
+@keyframes float-up-down {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Orbit ring element */
+.orbit-ring {
+  animation: orbit-spin 18s linear infinite;
+}
+
+.orbit-ring-slow {
+  animation: orbit-spin 28s linear infinite reverse;
+}
+
+.float-anim {
+  animation: float-up-down 6s ease-in-out infinite;
+}
+
+/* Word split for GSAP */
+.word-wrap {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.word-inner {
+  display: inline-block;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #1a2530;
+}
+::-webkit-scrollbar-thumb {
+  background: #6FAEDB;
+  border-radius: 2px;
+}
+
+/* RTL helpers */
+html[dir="rtl"] .flip-rtl {
+  transform: scaleX(-1);
+}
