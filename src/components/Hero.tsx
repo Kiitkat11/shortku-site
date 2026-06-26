@@ -9,7 +9,7 @@ import { useLang } from "@/components/LanguageProvider";
 gsap.registerPlugin(ScrollTrigger);
 
 export function Hero() {
-  const { t, lang } = useLang();
+  const { t } = useLang();
   const sectionRef      = useRef<HTMLElement>(null);
   const bgRef           = useRef<HTMLDivElement>(null);
   const droneScrollRef  = useRef<HTMLDivElement>(null);  // scroll parallax wrapper
@@ -131,9 +131,9 @@ export function Hero() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [lang]);
+  }, []);
 
-  const isAr = lang === "ar";
+  
 
   return (
     <section
@@ -154,29 +154,25 @@ export function Hero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-14 pt-24 pb-16">
         <div
           className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-center ${
-            isAr ? "direction-rtl" : ""
+            ""
           }`}
         >
           {/* ── Left: text ─────────────────────────────────────────────── */}
           <div
             ref={textRef}
-            className={`${isAr ? "font-tajawal text-right order-2 lg:order-1" : "font-outfit order-2 lg:order-1"}`}
+            className={`${"font-outfit order-2 lg:order-1"}`}
           >
             <h1 className="mb-6">
               <span
                 className={`h-line1 block font-bold text-white leading-[1.04] ${
-                  isAr
-                    ? "text-4xl sm:text-5xl md:text-6xl"
-                    : "text-[clamp(2.6rem,5.5vw,5rem)]"
+                  "text-[clamp(2.6rem,5.5vw,5rem)]"
                 }`}
               >
                 {t.hero.headline[0]}
               </span>
               <span
                 className={`h-line2 block font-bold text-azure leading-[1.04] ${
-                  isAr
-                    ? "text-4xl sm:text-5xl md:text-6xl"
-                    : "text-[clamp(2.6rem,5.5vw,5rem)]"
+                  "text-[clamp(2.6rem,5.5vw,5rem)]"
                 }`}
               >
                 {t.hero.headline[1]}
@@ -185,13 +181,13 @@ export function Hero() {
 
             <p
               className={`h-sub max-w-md text-white/65 leading-relaxed mb-10 ${
-                isAr ? "text-base md:text-lg mr-0 ml-auto lg:ml-0" : "text-base md:text-lg"
+                "text-base md:text-lg"
               }`}
             >
               {t.hero.sub}
             </p>
 
-            <div className={`h-ctas flex flex-wrap gap-4 mb-14 ${isAr ? "justify-end lg:justify-start" : ""}`}>
+            <div className={`h-ctas flex flex-wrap gap-4 mb-14 ${""}`}>
               <a
                 href="#contact"
                 className="px-7 py-3.5 rounded-full bg-azure text-pitch font-semibold text-sm hover:bg-white transition-colors duration-200"
@@ -202,7 +198,7 @@ export function Hero() {
                 href="#why"
                 className="px-7 py-3.5 rounded-full border border-white/25 text-white text-sm font-medium hover:border-white/60 transition-colors duration-200"
               >
-                {isAr ? "تعرف أكثر" : "Learn More"}
+                {"Learn More"}
               </a>
             </div>
           </div>

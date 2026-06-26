@@ -4,23 +4,23 @@ import Image from "next/image";
 import { useLang } from "@/components/LanguageProvider";
 
 export function Footer() {
-  const { t, lang } = useLang();
-  const isAr = lang === "ar";
+  const { t } = useLang();
+  
 
   return (
     <footer
       className={`bg-pitch-dark border-t border-white/5 py-14 px-6 md:px-12 ${
-        isAr ? "font-tajawal" : "font-outfit"
+        "font-outfit"
       }`}
     >
       <div className="max-w-6xl mx-auto">
         <div
           className={`flex flex-col md:flex-row items-start md:items-center justify-between gap-8 ${
-            isAr ? "md:flex-row-reverse" : ""
+            ""
           }`}
         >
           {/* Brand */}
-          <div className={isAr ? "text-right" : ""}>
+          <div className={""}>
             <Image
               src="/wordmark-white.svg"
               alt="Shortku"
@@ -36,17 +36,17 @@ export function Footer() {
           {/* Nav links */}
           <nav
             className={`flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 text-sm text-white/40 ${
-              isAr ? "md:items-end" : ""
+              ""
             }`}
           >
             <a href="#why" className="hover:text-azure transition-colors duration-200">
-              {isAr ? "لماذا يهم" : "Why It Matters"}
+              {"Why It Matters"}
             </a>
             <a href="#vision" className="hover:text-azure transition-colors duration-200">
-              {isAr ? "رؤيتنا" : "Vision"}
+              {"Vision"}
             </a>
             <a href="#contact" className="hover:text-azure transition-colors duration-200">
-              {isAr ? "تواصل" : "Contact"}
+              {"Contact"}
             </a>
           </nav>
         </div>

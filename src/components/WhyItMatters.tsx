@@ -8,7 +8,7 @@ import { useLang } from "@/components/LanguageProvider";
 gsap.registerPlugin(ScrollTrigger);
 
 export function WhyItMatters() {
-  const { t, lang } = useLang();
+  const { t } = useLang();
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLLIElement[]>([]);
@@ -49,7 +49,7 @@ export function WhyItMatters() {
             trigger: item,
             start: "top 88%",
           },
-          x: lang === "ar" ? 40 : -40,
+          x: -40,
           opacity: 0,
           duration: 0.7,
           delay: i * 0.08,
@@ -59,16 +59,16 @@ export function WhyItMatters() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [lang]);
+  }, []);
 
-  const isAr = lang === "ar";
+  
 
   return (
     <section
       id="why"
       ref={sectionRef}
       className={`bg-mist py-28 md:py-36 px-6 md:px-12 ${
-        isAr ? "font-tajawal" : "font-outfit"
+        "font-outfit"
       }`}
     >
       <div className="max-w-6xl mx-auto">
@@ -82,9 +82,7 @@ export function WhyItMatters() {
             </p>
             <h2
               className={`font-bold text-pitch leading-[1.1] mb-8 ${
-                isAr
-                  ? "text-3xl md:text-5xl"
-                  : "text-4xl md:text-5xl lg:text-6xl"
+                "text-4xl md:text-5xl lg:text-6xl"
               }`}
               style={{ whiteSpace: "pre-line" }}
             >
@@ -93,7 +91,7 @@ export function WhyItMatters() {
             <p
               ref={bodyRef}
               className={`text-pitch/60 leading-relaxed ${
-                isAr ? "text-base md:text-lg" : "text-base md:text-lg"
+                "text-base md:text-lg"
               }`}
             >
               {t.why.body}
@@ -116,7 +114,7 @@ export function WhyItMatters() {
                 key={i}
                 ref={addItem}
                 className={`flex items-start gap-6 py-6 group ${
-                  isAr ? "flex-row-reverse text-right" : ""
+                  ""
                 }`}
               >
                 {/* Number */}
@@ -126,7 +124,7 @@ export function WhyItMatters() {
                 {/* Text */}
                 <span
                   className={`text-pitch/80 font-medium leading-snug group-hover:text-pitch transition-colors duration-200 ${
-                    isAr ? "text-lg" : "text-lg"
+                    "text-lg"
                   }`}
                 >
                   {item.text}

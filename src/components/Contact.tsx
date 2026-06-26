@@ -13,12 +13,12 @@ gsap.registerPlugin(ScrollTrigger);
   2. Create a new form and copy the form ID (e.g. "xpzgkqrb")
   3. Replace FORMSPREE_FORM_ID below with your actual form ID
 */
-const FORMSPREE_FORM_ID = "YOUR_FORM_ID";
+const FORMSPREE_FORM_ID = "meebgagg";
 
 type Status = "idle" | "sending" | "success" | "error";
 
 export function Contact() {
-  const { t, lang } = useLang();
+  const { t } = useLang();
   const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -46,13 +46,6 @@ export function Contact() {
     e.preventDefault();
     setStatus("sending");
 
-    if (FORMSPREE_FORM_ID === "YOUR_FORM_ID") {
-      // Demo mode — no real endpoint
-      await new Promise((r) => setTimeout(r, 1000));
-      setStatus("success");
-      return;
-    }
-
     try {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
         method: "POST",
@@ -65,10 +58,10 @@ export function Contact() {
     }
   };
 
-  const isAr = lang === "ar";
+  
 
   const inputClass = `w-full bg-white/5 border border-white/15 rounded-xl px-5 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-azure/70 transition-colors duration-200 ${
-    isAr ? "text-right font-tajawal" : "text-left font-outfit"
+    "text-left font-outfit"
   }`;
 
   return (
@@ -76,7 +69,7 @@ export function Contact() {
       id="contact"
       ref={sectionRef}
       className={`bg-pitch py-28 md:py-36 px-6 md:px-12 ${
-        isAr ? "font-tajawal" : "font-outfit"
+        "font-outfit"
       }`}
     >
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -87,12 +80,12 @@ export function Contact() {
           </p>
           <h2
             className={`font-bold text-white leading-[1.1] mb-6 ${
-              isAr ? "text-4xl md:text-5xl" : "text-4xl md:text-5xl lg:text-6xl"
+              "text-4xl md:text-5xl lg:text-6xl"
             }`}
           >
             {t.contact.headline}
           </h2>
-          <p className={`text-white/50 leading-relaxed mb-8 ${isAr ? "text-base md:text-lg" : "text-base md:text-lg"}`}>
+          <p className={`text-white/50 leading-relaxed mb-8 ${"text-base md:text-lg"}`}>
             {t.contact.body}
           </p>
         </div>
@@ -106,7 +99,7 @@ export function Contact() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
               </div>
-              <p className={`text-white font-semibold text-lg ${isAr ? "font-tajawal" : ""}`}>
+              <p className={`text-white font-semibold text-lg ${""}`}>
                 {t.contact.success}
               </p>
             </div>
@@ -150,9 +143,7 @@ export function Contact() {
                 className="w-full py-3.5 rounded-xl bg-azure text-pitch font-semibold text-sm hover:bg-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === "sending"
-                  ? isAr
-                    ? "جارٍ الإرسال…"
-                    : "Sending…"
+                  ? "Sending…"
                   : t.contact.submit}
               </button>
             </form>

@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { useLang } from "@/components/LanguageProvider";
 
 export function Nav() {
-  const { lang, toggle, t } = useLang();
+  const { t } = useLang();
   const navRef = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
 
@@ -49,15 +49,6 @@ export function Nav() {
 
       {/* Right controls */}
       <div className="flex items-center gap-4">
-        {/* Language toggle */}
-        <button
-          onClick={toggle}
-          className="text-xs font-medium tracking-widest uppercase text-white/60 hover:text-azure transition-colors duration-200 px-3 py-1.5 rounded border border-white/10 hover:border-azure/40"
-        >
-          {lang === "en" ? "عربي" : "EN"}
-        </button>
-
-        {/* CTA */}
         <a
           href="#contact"
           className="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-azure text-pitch text-sm font-semibold hover:bg-white transition-colors duration-200"

@@ -8,7 +8,7 @@ import { useLang } from "@/components/LanguageProvider";
 gsap.registerPlugin(ScrollTrigger);
 
 export function Vision() {
-  const { t, lang } = useLang();
+  const { t } = useLang();
   const sectionRef = useRef<HTMLElement>(null);
   const eyebrowRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -63,26 +63,26 @@ export function Vision() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [lang]);
+  }, []);
 
-  const isAr = lang === "ar";
+  
 
   return (
     <section
       id="vision"
       ref={sectionRef}
       className={`relative bg-white py-28 md:py-40 px-6 md:px-12 overflow-hidden ${
-        isAr ? "font-tajawal" : "font-outfit"
+        "font-outfit"
       }`}
     >
       {/* Large background word */}
       <div
         ref={bgTextRef}
         className={`absolute top-1/2 -translate-y-1/2 pointer-events-none select-none font-bold text-[clamp(120px,18vw,240px)] leading-none text-pitch/[0.03] whitespace-nowrap ${
-          isAr ? "right-0 font-tajawal" : "left-0"
+          "left-0"
         }`}
       >
-        {isAr ? "رؤيتنا" : "VISION"}
+        {"VISION"}
       </div>
 
       <div className="relative max-w-5xl mx-auto">
@@ -98,9 +98,7 @@ export function Vision() {
         <h2
           ref={headlineRef}
           className={`font-bold text-pitch leading-[1.05] mb-10 ${
-            isAr
-              ? "text-4xl md:text-6xl lg:text-7xl"
-              : "text-5xl md:text-6xl lg:text-7xl"
+            "text-5xl md:text-6xl lg:text-7xl"
           }`}
         >
           {t.vision.headline}
@@ -112,7 +110,7 @@ export function Vision() {
           <p
             ref={bodyRef}
             className={`text-pitch/60 leading-relaxed ${
-              isAr ? "text-base md:text-lg" : "text-base md:text-lg"
+              "text-base md:text-lg"
             }`}
           >
             {t.vision.body}
@@ -122,12 +120,12 @@ export function Vision() {
           <blockquote
             ref={quoteRef}
             className={`relative border-l-2 border-azure pl-8 ${
-              isAr ? "border-l-0 border-r-2 pr-8 pl-0" : ""
+              ""
             }`}
           >
             <p
               className={`font-semibold text-pitch leading-snug italic ${
-                isAr ? "text-xl md:text-2xl" : "text-xl md:text-2xl"
+                "text-xl md:text-2xl"
               }`}
             >
               &ldquo;{t.vision.quote}&rdquo;
