@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useLang } from "@/components/LanguageProvider";
+import { PillButton } from "@/components/ui";
 
 export function Nav() {
   const { t } = useLang();
@@ -26,36 +27,58 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return (
-    <nav
-      ref={navRef}
-      className={`fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-12 h-16 transition-all duration-500 ${
-        scrolled
-          ? "bg-pitch/90 backdrop-blur-md border-b border-white/5"
-          : "bg-transparent"
-      }`}
-    >
-      {/* Logo */}
-      <a href="#" className="flex items-center h-7 shrink-0">
-        <Image
-          src="/wordmark-white.svg"
-          alt="Shortku"
-          width={120}
-          height={28}
-          className="h-7 w-auto"
-          priority
-        />
-      </a>
+  const links = [
+    { href: "/#services", label: t.nav.services },
+    { href: "/#mission", label: t.nav.mission },
+    { href: "/#why", label: t.nav.why },
+    { href: "/#contact", label: t.nav.contact },
+  ];
 
-      {/* Right controls */}
-      <div className="flex items-center gap-4">
-        <a
-          href="#contact"
-          className="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-azure text-pitch text-sm font-semibold hover:bg-white transition-colors duration-200"
-        >
-          {t.nav.cta}
+  return (
+    <div className="fixed top-0 inset-x-0 z-50">
+      <div className="text-center py-3 text-caption text-surface-cream/80 bg-just-black/80 backdrop-blur-sm border-b border-surface-25">
+        {t.banner.text}
+        {" — "}
+        <a href="/#contact" className="text-shockingly-green hover:opacity-80 transition-opacity">
+          {t.banner.link}
         </a>
       </div>
-    </nav>
+
+      <nav
+        ref={navRef}
+        className={`flex items-center justify-between px-6 md:px-12 h-16 transition-colors duration-500 ${
+          scrolled ? "bg-just-black/90 backdrop-blur-md border-b border-surface-25" : "bg-transparent"
+        }`}
+      >
+        <a href="/" className="flex items-center h-7 shrink-0">
+          <Image
+            src="/wordmark-white.svg"
+            alt="Shortku"
+            width={120}
+            height={28}
+            className="h-7 w-auto"
+            priority
+          />
+        </a>
+
+        <div className="hidden md:flex items-center gap-4">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-body-sm text-surface-50 hover:text-surface-cream transition-colors duration-200 py-2.5 px-1.5"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-4">
+          <PillButton href="/#contact" variant="gradient">
+            {t.nav.cta}
+          </PillButton>
+        </div>
+      </nav>
+    </div>
   );
 }

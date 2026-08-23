@@ -5,61 +5,63 @@ import { useLang } from "@/components/LanguageProvider";
 
 export function Footer() {
   const { t } = useLang();
-  
+
+  const links = [
+    { href: "/#services", label: t.footer.links.services },
+    { href: "/#mission", label: t.footer.links.mission },
+    { href: "/#why", label: t.footer.links.why },
+    { href: "/#contact", label: t.footer.links.contact },
+  ];
 
   return (
-    <footer
-      className={`bg-pitch-dark border-t border-white/5 py-14 px-6 md:px-12 ${
-        "font-outfit"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto">
-        <div
-          className={`flex flex-col md:flex-row items-start md:items-center justify-between gap-8 ${
-            ""
-          }`}
-        >
-          {/* Brand */}
-          <div className={""}>
-            <Image
-              src="/wordmark-white.svg"
-              alt="Shortku"
-              width={110}
-              height={26}
-              className="h-6 w-auto mb-4 opacity-80"
-            />
-            <p className="text-white/40 text-sm max-w-xs leading-relaxed">
+    <footer className="bg-off-black border-t border-surface-25 py-16 md:py-20 px-6 md:px-12">
+      <div className="max-w-[var(--page-max-width)] mx-auto">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 mb-16">
+          <div>
+            <a href="/" className="inline-block">
+              <Image
+                src="/wordmark-white.svg"
+                alt="Shortku"
+                width={110}
+                height={26}
+                className="h-6 w-auto mb-4 opacity-90"
+              />
+            </a>
+            <p className="text-body-sm text-surface-50 max-w-xs leading-[1.15]">
               {t.footer.tagline}
             </p>
           </div>
 
-          {/* Nav links */}
-          <nav
-            className={`flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 text-sm text-white/40 ${
-              ""
-            }`}
-          >
-            <a href="#why" className="hover:text-azure transition-colors duration-200">
-              {"Why It Matters"}
-            </a>
-            <a href="#vision" className="hover:text-azure transition-colors duration-200">
-              {"Vision"}
-            </a>
-            <a href="#contact" className="hover:text-azure transition-colors duration-200">
-              {"Contact"}
-            </a>
+          <nav className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-body-sm text-surface-50 hover:text-surface-cream transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            ))}
           </nav>
         </div>
 
-        {/* Divider */}
-        <div className="mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <p className="text-white/25 text-xs">{t.footer.copy}</p>
-          <div className="flex items-center gap-2 opacity-30">
-            <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="13" stroke="#6FAEDB" strokeWidth="1.5" />
-              <circle cx="16" cy="3" r="3" fill="#D6BE92" />
-            </svg>
-            <span className="text-xs text-white/50 tracking-widest uppercase">Shortku</span>
+        <div className="section-divider mb-8" />
+
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <p className="text-caption text-surface-50">{t.footer.copy}</p>
+          <div className="flex items-center gap-6">
+            <a
+              href="/privacy"
+              className="text-caption text-surface-50 hover:text-surface-cream transition-colors duration-200"
+            >
+              {t.footer.privacy}
+            </a>
+            <a
+              href="/terms"
+              className="text-caption text-surface-50 hover:text-surface-cream transition-colors duration-200"
+            >
+              {t.footer.terms}
+            </a>
           </div>
         </div>
       </div>

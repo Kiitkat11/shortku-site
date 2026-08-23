@@ -1,31 +1,24 @@
 import type { Metadata } from "next";
-import { Outfit, Tajawal } from "next/font/google";
+import { Inter_Tight } from "next/font/google";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { LenisProvider } from "@/components/LenisProvider";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const tajawal = Tajawal({
-  variable: "--font-tajawal",
-  subsets: ["arabic"],
-  weight: ["300", "400", "500", "700", "800"],
+  weight: ["400", "600"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Shortku",
+  title: "Shortku — Saudi Market Entry Partner",
   description:
-    "Shortku develops autonomous drone systems that make delivery faster, more efficient, and more sustainable. Building the future of autonomous transportation.",
+    "Shortku helps international startups enter, understand, and grow in the Saudi Arabian market through local expertise, partnerships, and strategic support.",
   openGraph: {
-    title: "Shortku",
+    title: "Shortku — Saudi Market Entry Partner",
     description:
-      "Commercial autonomous drone technology designed to bring aerial logistics into everyday life.",
+      "Helping startups successfully enter and grow in Saudi Arabia.",
     type: "website",
   },
 };
@@ -36,12 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" className={`${outfit.variable} ${tajawal.variable}`}>
-      <body className="min-h-full antialiased">
+    <html lang="en" dir="ltr" className={interTight.variable}>
+      <body className="min-h-full antialiased bg-just-black text-surface-cream">
         <LanguageProvider>
-          <LenisProvider>
-            {children}
-          </LenisProvider>
+          <LenisProvider>{children}</LenisProvider>
         </LanguageProvider>
       </body>
     </html>

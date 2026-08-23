@@ -1,19 +1,33 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { WhyItMatters } from "@/components/WhyItMatters";
-import { Vision } from "@/components/Vision";
+import { Intro } from "@/components/Intro";
+import { Mission } from "@/components/Mission";
+import { Services } from "@/components/Services";
+import { WhySaudi } from "@/components/WhySaudi";
+import { Advantage } from "@/components/Advantage";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main>
-      <Nav />
-      <Hero />
-      <WhyItMatters />
-      <Vision />
-      <Contact />
-      <Footer />
-    </main>
+    <>
+      <div className="mesh-bg" aria-hidden="true">
+        <div className="mesh-bg__base" />
+        <div className="mesh-bg__blob mesh-bg__blob--a" />
+        <div className="mesh-bg__blob mesh-bg__blob--b" />
+      </div>
+
+      <main className="content">
+        <Nav />
+        <Hero />
+        <Intro />
+        <Mission />
+        <Services />
+        <WhySaudi />
+        <Advantage />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 }

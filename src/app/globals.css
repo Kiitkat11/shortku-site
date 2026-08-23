@@ -1,98 +1,236 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors */
-  --color-azure:       #6FAEDB;
-  --color-azure-deep:  #3E86C0;
-  --color-oat:         #E4D5B7;
-  --color-oat-deep:    #D6BE92;
-  --color-pitch:       #26343E;
-  --color-pitch-dark:  #1a2530;
-  --color-mist:        #F4EEE1;
+  /* GSAP-inspired palette */
+  --color-just-black: #0e100f;
+  --color-surface-cream: #fffce1;
+  --color-surface-50: #7c7c6f;
+  --color-surface-25: #42433d;
+  --color-off-black: #191919;
+  --color-shockingly-green: #0ae448;
+  --color-light-green: #abff84;
+  --color-orangey: #ff8709;
+  --color-pink: #fec5fb;
+  --color-lilac: #9d95ff;
+  --color-blue: #00bae2;
 
-  /* Fonts */
-  --font-outfit:  var(--font-outfit);
-  --font-tajawal: var(--font-tajawal);
+  --text-caption: 14px;
+  --leading-caption: 1.4;
+  --tracking-caption: -0.14px;
+  --text-body-sm: 16px;
+  --leading-body-sm: 1.15;
+  --text-body: 19px;
+  --leading-body: 1.15;
+  --text-body-lg: 23px;
+  --leading-body-lg: 1.38;
+  --tracking-body-lg: -0.23px;
+  --text-subheading: 34px;
+  --leading-subheading: 1.2;
+  --tracking-subheading: -0.34px;
+  --text-heading-sm: 44px;
+  --leading-heading-sm: 1.2;
+  --tracking-heading-sm: -0.44px;
+  --text-heading: 66px;
+  --leading-heading: 1.2;
+  --tracking-heading: -0.66px;
+  --text-heading-lg: 101px;
+  --leading-heading-lg: 1;
+  --tracking-heading-lg: -1.11px;
+  --text-display: 224px;
+  --leading-display: 0.9;
+  --tracking-display: -4.48px;
+
+  --radius-cards: 8px;
+  --radius-pills: 9999px;
+  --radius-buttons: 100px;
+
+  --page-max-width: 1280px;
+  --section-gap: 80px;
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #26343E;
+  --background: #0e100f;
+  --foreground: #fffce1;
+  --gradient-shockingly-green: linear-gradient(114.41deg, #0ae448 20.74%, #abff84 65.5%);
 }
 
 html {
-  scroll-behavior: auto; /* Lenis handles this */
+  scroll-behavior: auto;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-outfit), "Plus Jakarta Sans", system-ui, Arial, sans-serif;
+  font-family: var(--font-inter-tight), "DM Sans", ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
 }
 
-/* Arabic body override */
-html[lang="ar"] body {
-  font-family: var(--font-tajawal), "IBM Plex Sans Arabic", Tahoma, sans-serif;
+@keyframes blob-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(12px, -16px) scale(1.03); }
+  66% { transform: translate(-8px, 10px) scale(0.98); }
 }
 
-/* Orbit ring animation */
-@keyframes orbit-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+.blob-drift {
+  animation: blob-drift 12s ease-in-out infinite;
 }
 
-@keyframes orbit-node {
-  from { transform: rotate(0deg) translateX(140px); }
-  to   { transform: rotate(360deg) translateX(140px); }
+.pill-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 24px;
+  border-radius: 100px;
+  border: 1px solid var(--color-surface-cream);
+  background: transparent;
+  color: var(--color-surface-cream);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.05;
+  transition: opacity 0.2s ease;
 }
 
-@keyframes float-up-down {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-18px); }
+.pill-outline:hover {
+  opacity: 0.8;
 }
 
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+.pill-gradient {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 24px;
+  border-radius: 100px;
+  background: transparent;
+  color: var(--color-surface-cream);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.05;
+  isolation: isolate;
 }
 
-/* Orbit ring element */
-.orbit-ring {
-  animation: orbit-spin 18s linear infinite;
+.pill-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  padding: 1.5px;
+  background: var(--gradient-shockingly-green);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
-.orbit-ring-slow {
-  animation: orbit-spin 28s linear infinite reverse;
+.pill-gradient:hover {
+  opacity: 0.85;
 }
 
-.float-anim {
-  animation: float-up-down 6s ease-in-out infinite;
-}
-
-/* Word split for GSAP */
-.word-wrap {
+/* Sits at -1 so hero elements using mix-blend-mode share a stacking context
+   with the mesh and can blend against it. */
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   overflow: hidden;
-  display: inline-block;
+  pointer-events: none;
 }
 
-.word-inner {
-  display: inline-block;
+.mesh-bg__base {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 55% at 78% 10%, rgba(0, 186, 226, 0.20), transparent 68%),
+    radial-gradient(55% 50% at 10% 80%, rgba(157, 149, 255, 0.16), transparent 68%),
+    radial-gradient(50% 45% at 45% 45%, rgba(10, 228, 72, 0.08), transparent 72%),
+    var(--color-just-black);
 }
 
-/* Scrollbar */
+.mesh-bg__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  will-change: transform;
+}
+
+.mesh-bg__blob--a {
+  width: max(440px, 46vw);
+  aspect-ratio: 1;
+  top: -14%;
+  right: -8%;
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(10, 228, 72, 0.5),
+    rgba(0, 186, 226, 0.32) 55%,
+    transparent 72%
+  );
+  animation: mesh-drift-a 26s ease-in-out infinite;
+}
+
+.mesh-bg__blob--b {
+  width: max(380px, 40vw);
+  aspect-ratio: 1;
+  bottom: -16%;
+  left: -10%;
+  background: radial-gradient(
+    circle at 60% 40%,
+    rgba(254, 197, 251, 0.3),
+    rgba(157, 149, 255, 0.26) 55%,
+    transparent 72%
+  );
+  animation: mesh-drift-b 32s ease-in-out infinite;
+}
+
+@keyframes mesh-drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-6%, 6%, 0) scale(1.08); }
+}
+
+@keyframes mesh-drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(7%, -5%, 0) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh-bg__blob {
+    animation: none;
+  }
+}
+
+.content {
+  position: relative;
+}
+
+/* The LEAP artwork has a dark-but-not-black backing, so screen blending alone
+   leaves a visible rectangle. Fading the edges dissolves it into the mesh. */
+.hero-logo-mask {
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 42%, transparent 72%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 42%, transparent 72%);
+}
+
+.hero-accent {
+  background: var(--gradient-shockingly-green);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-divider {
+  height: 1px;
+  background: var(--color-surface-25);
+  width: 100%;
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #1a2530;
-}
-::-webkit-scrollbar-thumb {
-  background: #6FAEDB;
-  border-radius: 2px;
+  background: #0e100f;
 }
 
-/* RTL helpers */
-html[dir="rtl"] .flip-rtl {
-  transform: scaleX(-1);
+::-webkit-scrollbar-thumb {
+  background: #42433d;
+  border-radius: 2px;
 }
