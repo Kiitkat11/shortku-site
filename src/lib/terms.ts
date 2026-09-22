@@ -9,7 +9,7 @@ export const termsOfUse: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "Your access and use of Shortku's website www.shortkutech.com (\"Website\") is subject to the following terms of use (\"Terms\"), Shortku's Privacy Notice, and Disclaimer, and the laws of the Kingdom of Saudi Arabia. Your consent and approval to these Terms is deemed effective upon your first use of this Website. Shortku, at its sole discretion, may amend these Terms with immediate effect and your consent and approval to such amendments is deemed upon your continuous use of the Website.",
+          text: "Your access and use of Eyeeai's website www.eyeeai.com (\"Website\") is subject to the following terms of use (\"Terms\"), Eyeeai's Privacy Notice, and Disclaimer, and the laws of the Kingdom of Saudi Arabia. Your consent and approval to these Terms is deemed effective upon your first use of this Website. Eyeeai, at its sole discretion, may amend these Terms with immediate effect and your consent and approval to such amendments is deemed upon your continuous use of the Website.",
         },
       ],
     },
@@ -19,7 +19,7 @@ export const termsOfUse: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "The contents of this Website are available for general information only and Shortku does not represent nor warrant the accuracy, reliability, or completeness of the information provided.",
+          text: "The contents of this Website are available for general information only and Eyeeai does not represent nor warrant the accuracy, reliability, or completeness of the information provided.",
         },
         {
           type: "p",
@@ -35,7 +35,7 @@ export const termsOfUse: LegalDoc = {
             "upload files containing viruses or corrupt data, attack this Website in any way including using malicious or harmful technology, or using software to interfere with the proper operation of the Website;",
             "misuse the Website to engage in activities that are illegal or unlawful in the Kingdom of Saudi Arabia;",
             "attempt to get unauthorized access to the Website, servers or any connected databases, portals, or devices; or",
-            "create a link to this Website in any way suggesting or claiming Shortku's association, endorsement, or approval.",
+            "create a link to this Website in any way suggesting or claiming Eyeeai's association, endorsement, or approval.",
           ],
         },
         {
@@ -50,16 +50,16 @@ export const termsOfUse: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "In consideration of using Shortku's web applications, I confirm that I have read, understood and agree to comply with the below statements; and I shall abide by them while using or accessing Shortku's web applications.",
+          text: "In consideration of using Eyeeai's web applications, I confirm that I have read, understood and agree to comply with the below statements; and I shall abide by them while using or accessing Eyeeai's web applications.",
         },
         {
           type: "list",
           ordered: true,
           items: [
-            "I am aware that all data stored on or originating from, and all communications transmitted or received using, Shortku web applications are considered the property of Shortku.",
-            "I will not copy, distribute, lose, misuse, disclose or modify any information related to Shortku without prior approval.",
-            "I will comply with, and I will respect, Shortku's cybersecurity policies and procedures, and the law of the Kingdom of Saudi Arabia and any other related regulations.",
-            "I will not attempt any unauthorized access to, interference with or disruption of any software, data, documents or systems available through Shortku's web application.",
+            "I am aware that all data stored on or originating from, and all communications transmitted or received using, Eyeeai web applications are considered the property of Eyeeai.",
+            "I will not copy, distribute, lose, misuse, disclose or modify any information related to Eyeeai without prior approval.",
+            "I will comply with, and I will respect, Eyeeai's cybersecurity policies and procedures, and the law of the Kingdom of Saudi Arabia and any other related regulations.",
+            "I will not attempt any unauthorized access to, interference with or disruption of any software, data, documents or systems available through Eyeeai's web application.",
             "I will not copy or download any material or any portion protected by copyright without proper authorization from the copyright owner.",
           ],
         },
@@ -71,7 +71,7 @@ export const termsOfUse: LegalDoc = {
       blocks: [
         {
           type: "p",
-          text: "All intellectual property including, but not limited to, copyright in, and to, the content, trademarks, logos, trade names, design, layout, overall appearance, graphics, and other proprietary information provided on, or via, this Website (whether in text, images or other materials) are owned by, or have been licensed to, or have permission to use by Shortku and cannot be used without Shortku's prior written approval.",
+          text: "All intellectual property including, but not limited to, copyright in, and to, the content, trademarks, logos, trade names, design, layout, overall appearance, graphics, and other proprietary information provided on, or via, this Website (whether in text, images or other materials) are owned by, or have been licensed to, or have permission to use by Eyeeai and cannot be used without Eyeeai's prior written approval.",
         },
       ],
     },

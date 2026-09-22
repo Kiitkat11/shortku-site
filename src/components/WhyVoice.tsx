@@ -7,7 +7,7 @@ import { useLang } from "@/components/LanguageProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function WhySaudi() {
+export function WhyVoice() {
   const { t } = useLang();
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -39,15 +39,15 @@ export function WhySaudi() {
         >
           <div>
             <h2 className="text-heading-sm md:text-heading font-semibold text-surface-cream leading-[1.2] tracking-[-0.44px] md:tracking-[-0.66px]">
-              {t.whySaudi.headline}
+              {t.whyVoice.headline}
             </h2>
           </div>
           <div>
             <p className="text-body-lg text-surface-cream/90 leading-[1.38] tracking-[-0.23px] mb-6">
-              {t.whySaudi.body}
+              {t.whyVoice.body}
             </p>
             <p className="text-body-lg text-surface-50 leading-[1.38] tracking-[-0.23px]">
-              {t.whySaudi.body2}
+              {t.whyVoice.body2}
             </p>
           </div>
         </div>

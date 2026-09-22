@@ -9,20 +9,7 @@ export type ServiceAsset = {
 };
 
 // Maps a service id from translations to its image in /public.
-// Services with no entry here fall back to the generated OrganicBlob.
-export const serviceAssets: Record<string, ServiceAsset> = {
-  entry: { src: "/services/entry.jpeg", fit: "cover", tilt: -8 },
-  localization: {
-    src: "/services/localization.png",
-    fit: "contain",
-    bg: "#f8f0e7",
-    tilt: 6,
-  },
-  funding: {
-    src: "/services/funding.png",
-    fit: "contain",
-    bg: "#18212c",
-    tilt: -5,
-  },
-  consulting: { src: "/services/consulting.png", fit: "cover", tilt: 7 },
-};
+// Services with no entry here fall back to the generated OrganicBlob, which is
+// what all four Mimi features do today — the coloured blob per feature is the
+// deliberate visual for the introductory site.
+export const serviceAssets: Record<string, ServiceAsset> = {};

@@ -2,11 +2,14 @@ import Image from "next/image";
 import type { ServiceAsset } from "@/lib/serviceAssets";
 import type { ServiceColor } from "@/lib/translations";
 
+// Feature illustration hues, taken from Mimi's note palette (dark values). Used
+// only for the marketing blobs on the intro page — chrome elsewhere stays on
+// the neutral + Tiffany axis defined in globals.css.
 const colorMap: Record<ServiceColor, string> = {
-  orangey: "#ff8709",
-  pink: "#fec5fb",
-  lilac: "#9d95ff",
-  blue: "#00bae2",
+  orangey: "#f59e0b", // mimi-note-amber (dark)
+  pink: "#fb7185",    // mimi-note-rose (dark)
+  lilac: "#a78bfa",   // mimi-note-violet (dark)
+  blue: "#0abab5",    // mimi-note-teal / Tiffany trademark
 };
 
 export function OrganicBlob({
@@ -104,7 +107,7 @@ export function CategoryLabel({
 }) {
   const colors: Record<ServiceColor | "green", string> = {
     ...colorMap,
-    green: "#0ae448",
+    green: "#0abab5", // Tiffany, used where the old palette had "shockingly green"
   };
   return (
     <span

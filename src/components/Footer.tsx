@@ -18,10 +18,10 @@ export function Footer() {
       <div className="max-w-[var(--page-max-width)] mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 mb-16">
           <div>
-            <a href="/" className="inline-block">
+            <a href="/" className="inline-block" aria-label="Mimi home">
               <Image
-                src="/wordmark-white.svg"
-                alt="Shortku"
+                src="/mimi-wordmark-white.svg"
+                alt="Mimi"
                 width={110}
                 height={26}
                 className="h-6 w-auto mb-4 opacity-90"

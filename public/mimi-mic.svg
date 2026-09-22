@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" width="120" height="160" fill="none"><g fill="#FFFFFF">
+  <!-- microphone capsule -->
+  <path d="M60 10C38.46 10 21 27.46 21 49v28c0 21.54 17.46 39 39 39s39-17.46 39-39V49c0-21.54-17.46-39-39-39Z"/>
+  <!-- diagonal grille cuts -->
+  <path fill="transparent" d="M27 39.3a7 7 0 0 1 9.9 0l39 39a7 7 0 1 1-9.9 9.9l-39-39a7 7 0 0 1 0-9.9Z"/>
+  <path fill="transparent" d="M45 25.3a7 7 0 0 1 9.9 0l39 39a7 7 0 1 1-9.9 9.9l-39-39a7 7 0 0 1 0-9.9Z"/>
+  <!-- microphone support -->
+  <path d="M10 75a7 7 0 0 1 14 0c0 19.88 16.12 36 36 36s36-16.12 36-36a7 7 0 1 1 14 0c0 25.02-18.32 45.77-42.25 49.58V140h17.5a7 7 0 1 1 0 14h-50.5a7 7 0 1 1 0-14h18.5v-15.42C28.32 120.77 10 100.02 10 75Z"/>
+</g></svg>

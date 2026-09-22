@@ -50,15 +50,22 @@ export function Nav() {
           scrolled ? "bg-just-black/90 backdrop-blur-md border-b border-surface-25" : "bg-transparent"
         }`}
       >
-        <a href="/" className="flex items-center h-7 shrink-0">
+        <a
+          href="/"
+          className="flex items-center gap-3 h-7 shrink-0"
+          aria-label="Mimi from Eyeeai — home"
+        >
           <Image
-            src="/wordmark-white.svg"
-            alt="Shortku"
+            src="/mimi-wordmark-white.svg"
+            alt="Mimi"
             width={120}
             height={28}
             className="h-7 w-auto"
             priority
           />
+          <span className="hidden sm:inline text-caption text-surface-50 border-l border-surface-25 pl-3 leading-none">
+            from Eyeeai
+          </span>
         </a>
 
         <div className="hidden md:flex items-center gap-4">

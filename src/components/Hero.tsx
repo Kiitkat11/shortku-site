@@ -74,7 +74,7 @@ export function Hero() {
         aria-hidden="true"
       >
         <Image
-          src="/hero-leap.jpg"
+          src="/mimi-mic.svg"
           alt=""
           fill
           sizes="(max-width: 768px) 70vw, 640px"
