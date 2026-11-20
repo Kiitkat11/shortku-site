@@ -23,6 +23,9 @@ export const metadata: Metadata = {
       "You talk; Mimi writes. Voice-first notes that structure themselves — lists, outlines, tables, and calendar events from a single spoken thought.",
     type: "website",
   },
+  other: {
+    "facebook-domain-verification": "5d5dwyuabmrytfkan521ez0esgkn6n",
+  },
 };
 
 export default function RootLayout({
